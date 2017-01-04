@@ -1,7 +1,7 @@
 {
-	"name": "vote",
+	"name": "Auto Vote",
 	"version": "1.0",
-	"description": "vote",
+	"description": "A Chrome extend to auto vote.",
 	"icons": {
 		"128": "icons/icon128.png",
 		"16": "icons/icon16.png",

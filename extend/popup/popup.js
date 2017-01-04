@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const el = $('#start');
 
 	if (BG.isRunning()) {
-		el.html('停止');
+		el.html('Stop');
 	} else {
-		el.html('启动');
+		el.html('Start');
 	}
 
 	el.click(function () {
@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (BG.isRunning()) {
 
 			BG.stop();
-			$(this).html('启动');
+			$(this).html('Start');
 
 		} else {
 
 			BG.start();
-			$(this).html('停止');
+			$(this).html('Stop');
 
 			chrome.tabs.create({
 				url: 'http://tp.sojump.cn/m/6827838.aspx'

@@ -1,5 +1,5 @@
 /**
- * 侦测麻醉科的checkbox是否已存在，一旦存在即勾选，并执行回调
+ * Check whether the Anesthesia checkbox has been render. Do callback at once if rendered.
  * @param callback
  */
 function checkAnesthesia(callback) {
@@ -23,9 +23,10 @@ function checkAnesthesia(callback) {
 }
 
 /**
- * 绑定验证码输入框的事件，方便使用
- *  1、按回车提交
- *  2、按ESC刷新验证码图片
+ * Bind verification code input event for convenience.
+ * (1) enter -> submit
+ * (2) esc -> refresh verification code image
+ *
  * @param input
  */
 function bindInputEvent(input) {
@@ -43,7 +44,9 @@ function bindInputEvent(input) {
 };
 
 /**
- * 侦测验证码输入框，一旦存在即click+focus(验证码图片默认不加载，点击输入框加载)，并绑定事件
+ * Check whether the verification code input has been render.
+ * Do click and focus and bind events at once if rendered.
+ * (Because verification code image load when click the input.)
  */
 function inputFocus() {
 
@@ -66,7 +69,7 @@ function inputFocus() {
 };
 
 /**
- * 清空cookies
+ * clear cookies
  * @param callback
  */
 function clearCookie(callback) {
@@ -77,7 +80,7 @@ function clearCookie(callback) {
 }
 
 /**
- * 投票页面地址
+ * vote url
  * @type {string}
  */
 const VOTE_URL = 'http://tp.sojump.cn/m/6827838.aspx';
@@ -89,13 +92,13 @@ $(() => {
 	}, response => {
 		if (response.isRunning === true) {
 
-			if (window.location.href == VOTE_URL) { // 投票页面
+			if (window.location.href == VOTE_URL) { // vote page
 				setTimeout(() => {
 					checkAnesthesia(() => {
 						inputFocus();
 					});
 				}, 100);
-			} else { // 投票成功页面或其他
+			} else { // vote success page ot others
 				clearCookie(() => {
 					window.location = VOTE_URL;
 				});

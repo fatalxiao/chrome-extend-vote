@@ -1,0 +1,52 @@
+{
+	"name": "vote",
+	"version": "1.0",
+	"description": "vote",
+	"icons": {
+		"128": "icons/icon128.png",
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png"
+	},
+	"manifest_version": 2,
+	"background": {
+		"scripts": [
+			"jquery/jquery-1.10.2.js",
+			"background/background.js",
+			"background/storage.js"
+		]
+	},
+	"browser_action": {
+		"default_icon": {
+			"19": "icons/icon19.png",
+			"38": "icons/icon38.png"
+		},
+		"default_popup": "popup/popup.html",
+		"default_title": "vote"
+	},
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"js": [
+				"jquery/jquery-1.10.2.js",
+				"content_scripts/main.js"
+			],
+			"css": [],
+			"matches": [
+				"*://*.sojump.cn/*"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"permissions": [
+		"*://*.sojump.cn/*",
+		"contextMenus",
+		"tabs",
+		"cookies",
+		"idle",
+		"webRequest",
+		"webNavigation"
+	],
+	"web_accessible_resources": [
+		"popup/popup.css"
+	]
+}
